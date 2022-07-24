@@ -83,21 +83,24 @@ namespace ProyectoDesarrWebU2.Controllers
 
         }
 
+
+        //Editar Pelicula
         public ActionResult Editar(int id)
         {
             PeliculaViewModel peliculaModel = new PeliculaViewModel();
             using (Grupo6_playBBEMEntities db = new Grupo6_playBBEMEntities())
             {
                 var oPelicula = db.pelicula.Find(id);
-                oPelicula.titulopel = peliculaModel.titulopel;
-                oPelicula.preciopel = peliculaModel.preciopel;
-                oPelicula.imgpel = peliculaModel.imgpel;
+                peliculaModel.imgpel = oPelicula.imgpel;
+                peliculaModel.titulopel = oPelicula.titulopel;
+                peliculaModel.preciopel = oPelicula.preciopel;
+                
             }
             return View(peliculaModel);
         }
 
         [HttpPost]
-        public ActionResult Editar(PeliculaViewModel PeliculaModel)
+        public ActionResult Editar(PeliculaViewModel peliculaModel)
         {
             try
             {
@@ -107,17 +110,17 @@ namespace ProyectoDesarrWebU2.Controllers
 
                     using (Grupo6_playBBEMEntities db = new Grupo6_playBBEMEntities())
                     {
-                        var oPelicula = db.pelicula.Find(PeliculaModel.idpel);
-                        oPelicula.titulopel = PeliculaModel.titulopel;
-                        oPelicula.preciopel = PeliculaModel.preciopel;
-                        oPelicula.imgpel = PeliculaModel.imgpel;
-
+                        var oPelicula = db.pelicula.Find(peliculaModel.idpel);
+                        oPelicula.imgpel = peliculaModel.imgpel;
+                        oPelicula.titulopel = peliculaModel.titulopel;
+                        oPelicula.preciopel = peliculaModel.preciopel;
+                        
                         db.Entry(oPelicula).State = System.Data.Entity.EntityState.Modified;
                         db.SaveChanges();
                     }
                     return Redirect("~/Pelicula/");
                 }
-                return View(PeliculaModel);
+                return View(peliculaModel);
             }
             catch (Exception ex)
             {
