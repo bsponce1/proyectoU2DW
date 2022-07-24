@@ -1,0 +1,38 @@
+﻿@model ProyectoDesarrWebU2.Models.ViewModels.PeliculaViewModel
+@{
+    ViewBag.Title = "Editar Pelicula";
+}
+
+<h2>@ViewBag.Title</h2>
+@using (Html.BeginForm("Editar", "Pelicula", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="row">
+        <div class="clo-md-12">
+            @Html.HiddenFor(p => p.idpel) <!--ID de manera Oculta-->
+            <div>
+                @Html.LabelFor(p => p.titulopel)<br />
+                @Html.TextBoxFor(p => p.titulopel, "", new { @clas = "form-control" })
+                @Html.ValidationMessageFor(p => p.titulopel, null, new { @class = "red" })
+            </div>
+
+            <div>
+                @Html.LabelFor(p => p.preciopel)<br />
+                @Html.TextBoxFor(p => p.preciopel, "", new { @clas = "form-control" })
+                @Html.ValidationMessageFor(p => p.preciopel, null, new { @class = "red" })
+            </div>
+
+            <div>
+                @Html.LabelFor(p => p.imgpel)<br />
+                <img width="300" src="@Url.Action("getImage", "Pelicula", new {id=Model.idpel})" />
+                <input type="file" name="imageload" />
+            </div>
+
+            <br />
+            <br />
+            <div>
+                <input values="Actualizar" class="btn btn-primary" type="submit" />
+            </div>
+        </div>
+    </div>
+}
+
