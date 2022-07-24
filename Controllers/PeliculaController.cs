@@ -84,5 +84,61 @@ namespace ProyectoDesarrWebU2.Controllers
 
 
         }
+
+        public ActionResult Editar(int id)
+        {
+            PeliculaViewModel peliculaModel = new PeliculaViewModel();
+            using (Grupo6_playBBEMEntities db = new Grupo6_playBBEMEntities())
+            {
+                var oPelicula = db.pelicula.Find(id);
+                oPelicula.titulopel = peliculaModel.titulopel;
+                oPelicula.preciopel = peliculaModel.preciopel;
+                oPelicula.imgpel = peliculaModel.imgpel;
+            }
+            return View(peliculaModel);
+        }
+
+        [HttpPost]
+        public ActionResult Editar(PeliculaViewModel PeliculaModel)
+        {
+            try
+            {
+                //Validar el formulario
+                if (ModelState.IsValid)
+                {
+
+                    using (Grupo6_playBBEMEntities db = new Grupo6_playBBEMEntities())
+                    {
+                        var oPelicula = db.pelicula.Find(PeliculaModel.idpel);
+                        oPelicula.titulopel = peliculaModel.titulopel;
+                        oPelicula.preciopel = peliculaModel.preciopel;
+                        oPelicula.imgpel = peliculaModel.imgpel;
+
+                        db.Entry(oPelicula).State = System.Data.Entity.EntityState.Modified;
+                        db.SaveChanges();
+                    }
+                    return Redirect("~/Pelicula/");
+                }
+                return View(PeliculaModel);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+
+
+        //Eliminar la Pelicula
+        public ActionResult Eliminar(int id)
+        {
+            using (Grupo6_playBBEMEntities db = new Grupo6_playBBEMEntities())
+            {
+                var oPelicula = db.pelicula.Find(id);
+                db.pelicula.Remove(oPelicula);
+                db.SaveChanges();
+            }
+            return Redirect("~/Pelicula");
+        }
     }
 }
