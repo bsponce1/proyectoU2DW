@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Grupo6_playBBEMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Grupo6_playBBEMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="adminis">
           <Key>
             <PropertyRef Name="idadmin" />
@@ -136,11 +136,34 @@
             <End Role="tipopago" EntitySet="tipopago" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Grupo6_playBBEMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Grupo6_playBBEMEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="adminis" EntityType="Grupo6_playBBEMModel.adminis" />
+          <EntitySet Name="detallefactura" EntityType="Grupo6_playBBEMModel.detallefactura" />
+          <EntitySet Name="factura" EntityType="Grupo6_playBBEMModel.factura" />
+          <EntitySet Name="pelicula" EntityType="Grupo6_playBBEMModel.pelicula" />
+          <EntitySet Name="tipopago" EntityType="Grupo6_playBBEMModel.tipopago" />
+          <EntitySet Name="usuario" EntityType="Grupo6_playBBEMModel.usuario" />
+          <AssociationSet Name="fk_idfact" Association="Grupo6_playBBEMModel.fk_idfact">
+            <End Role="factura" EntitySet="factura" />
+            <End Role="detallefactura" EntitySet="detallefactura" />
+          </AssociationSet>
+          <AssociationSet Name="fk_idpel" Association="Grupo6_playBBEMModel.fk_idpel">
+            <End Role="pelicula" EntitySet="pelicula" />
+            <End Role="detallefactura" EntitySet="detallefactura" />
+          </AssociationSet>
+          <AssociationSet Name="fk_idusuario" Association="Grupo6_playBBEMModel.fk_idusuario">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="factura" EntitySet="factura" />
+          </AssociationSet>
+          <AssociationSet Name="fk_tipopago_to_factura" Association="Grupo6_playBBEMModel.fk_tipopago_to_factura">
+            <End Role="factura" EntitySet="factura" />
+            <End Role="tipopago" EntitySet="tipopago" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="adminis">
           <Key>
             <PropertyRef Name="idadmin" />
@@ -156,8 +179,8 @@
           <Property Name="iddtfact" Type="Int32" Nullable="false" />
           <Property Name="idfact" Type="Int32" />
           <Property Name="idpel" Type="Int32" />
-          <NavigationProperty Name="factura" Relationship="Self.fk_idfact" FromRole="detallefactura" ToRole="factura" />
-          <NavigationProperty Name="pelicula" Relationship="Self.fk_idpel" FromRole="detallefactura" ToRole="pelicula" />
+          <NavigationProperty Name="factura" Relationship="Grupo6_playBBEMModel.fk_idfact" FromRole="detallefactura" ToRole="factura" />
+          <NavigationProperty Name="pelicula" Relationship="Grupo6_playBBEMModel.fk_idpel" FromRole="detallefactura" ToRole="pelicula" />
         </EntityType>
         <EntityType Name="factura">
           <Key>
@@ -169,9 +192,9 @@
           <Property Name="subtotalfact" Type="Decimal" Precision="11" Scale="2" />
           <Property Name="totalfact" Type="Decimal" Precision="11" Scale="2" />
           <Property Name="idusuario" Type="Int32" />
-          <NavigationProperty Name="detallefactura" Relationship="Self.fk_idfact" FromRole="factura" ToRole="detallefactura" />
-          <NavigationProperty Name="usuario" Relationship="Self.fk_idusuario" FromRole="factura" ToRole="usuario" />
-          <NavigationProperty Name="tipopago" Relationship="Self.fk_tipopago_to_factura" FromRole="factura" ToRole="tipopago" />
+          <NavigationProperty Name="detallefactura" Relationship="Grupo6_playBBEMModel.fk_idfact" FromRole="factura" ToRole="detallefactura" />
+          <NavigationProperty Name="usuario" Relationship="Grupo6_playBBEMModel.fk_idusuario" FromRole="factura" ToRole="usuario" />
+          <NavigationProperty Name="tipopago" Relationship="Grupo6_playBBEMModel.fk_tipopago_to_factura" FromRole="factura" ToRole="tipopago" />
         </EntityType>
         <EntityType Name="pelicula">
           <Key>
@@ -181,7 +204,7 @@
           <Property Name="titulopel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="preciopel" Type="Decimal" Precision="11" Scale="2" />
           <Property Name="imgpel" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="detallefactura" Relationship="Self.fk_idpel" FromRole="pelicula" ToRole="detallefactura" />
+          <NavigationProperty Name="detallefactura" Relationship="Grupo6_playBBEMModel.fk_idpel" FromRole="pelicula" ToRole="detallefactura" />
         </EntityType>
         <EntityType Name="tipopago">
           <Key>
@@ -190,7 +213,7 @@
           <Property Name="idtp" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="numtarjtp" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="idfact" Type="Int32" />
-          <NavigationProperty Name="factura" Relationship="Self.fk_tipopago_to_factura" FromRole="tipopago" ToRole="factura" />
+          <NavigationProperty Name="factura" Relationship="Grupo6_playBBEMModel.fk_tipopago_to_factura" FromRole="tipopago" ToRole="factura" />
         </EntityType>
         <EntityType Name="usuario">
           <Key>
@@ -206,11 +229,11 @@
           <Property Name="correousuario" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="claveusuario" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
           <Property Name="imagenusuario" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="factura" Relationship="Self.fk_idusuario" FromRole="usuario" ToRole="factura" />
+          <NavigationProperty Name="factura" Relationship="Grupo6_playBBEMModel.fk_idusuario" FromRole="usuario" ToRole="factura" />
         </EntityType>
         <Association Name="fk_idfact">
-          <End Role="factura" Type="Self.factura" Multiplicity="0..1" />
-          <End Role="detallefactura" Type="Self.detallefactura" Multiplicity="*" />
+          <End Type="Grupo6_playBBEMModel.factura" Role="factura" Multiplicity="0..1" />
+          <End Type="Grupo6_playBBEMModel.detallefactura" Role="detallefactura" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="factura">
               <PropertyRef Name="idfact" />
@@ -221,8 +244,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_idpel">
-          <End Role="pelicula" Type="Self.pelicula" Multiplicity="0..1" />
-          <End Role="detallefactura" Type="Self.detallefactura" Multiplicity="*" />
+          <End Type="Grupo6_playBBEMModel.pelicula" Role="pelicula" Multiplicity="0..1" />
+          <End Type="Grupo6_playBBEMModel.detallefactura" Role="detallefactura" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="pelicula">
               <PropertyRef Name="idpel" />
@@ -233,8 +256,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_idusuario">
-          <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
-          <End Role="factura" Type="Self.factura" Multiplicity="*" />
+          <End Type="Grupo6_playBBEMModel.usuario" Role="usuario" Multiplicity="0..1" />
+          <End Type="Grupo6_playBBEMModel.factura" Role="factura" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="usuario">
               <PropertyRef Name="idusuario" />
@@ -245,8 +268,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_tipopago_to_factura">
-          <End Role="factura" Type="Self.factura" Multiplicity="0..1" />
-          <End Role="tipopago" Type="Self.tipopago" Multiplicity="*" />
+          <End Type="Grupo6_playBBEMModel.factura" Role="factura" Multiplicity="0..1" />
+          <End Type="Grupo6_playBBEMModel.tipopago" Role="tipopago" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="factura">
               <PropertyRef Name="idfact" />
@@ -256,30 +279,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Grupo6_playBBEMEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="adminis" EntityType="Self.adminis" />
-          <EntitySet Name="detallefactura" EntityType="Self.detallefactura" />
-          <EntitySet Name="factura" EntityType="Self.factura" />
-          <EntitySet Name="pelicula" EntityType="Self.pelicula" />
-          <EntitySet Name="tipopago" EntityType="Self.tipopago" />
-          <EntitySet Name="usuario" EntityType="Self.usuario" />
-          <AssociationSet Name="fk_idfact" Association="Self.fk_idfact">
-            <End Role="factura" EntitySet="factura" />
-            <End Role="detallefactura" EntitySet="detallefactura" />
-          </AssociationSet>
-          <AssociationSet Name="fk_idpel" Association="Self.fk_idpel">
-            <End Role="pelicula" EntitySet="pelicula" />
-            <End Role="detallefactura" EntitySet="detallefactura" />
-          </AssociationSet>
-          <AssociationSet Name="fk_idusuario" Association="Self.fk_idusuario">
-            <End Role="usuario" EntitySet="usuario" />
-            <End Role="factura" EntitySet="factura" />
-          </AssociationSet>
-          <AssociationSet Name="fk_tipopago_to_factura" Association="Self.fk_tipopago_to_factura">
-            <End Role="factura" EntitySet="factura" />
-            <End Role="tipopago" EntitySet="tipopago" />
-          </AssociationSet>
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -289,65 +288,65 @@
           <EntitySetMapping Name="adminis">
             <EntityTypeMapping TypeName="Grupo6_playBBEMModel.adminis">
               <MappingFragment StoreEntitySet="adminis">
-                <ScalarProperty Name="idadmin" ColumnName="idadmin" />
-                <ScalarProperty Name="nombreadmin" ColumnName="nombreadmin" />
                 <ScalarProperty Name="claveadmin" ColumnName="claveadmin" />
+                <ScalarProperty Name="nombreadmin" ColumnName="nombreadmin" />
+                <ScalarProperty Name="idadmin" ColumnName="idadmin" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="detallefactura">
             <EntityTypeMapping TypeName="Grupo6_playBBEMModel.detallefactura">
               <MappingFragment StoreEntitySet="detallefactura">
-                <ScalarProperty Name="iddtfact" ColumnName="iddtfact" />
-                <ScalarProperty Name="idfact" ColumnName="idfact" />
                 <ScalarProperty Name="idpel" ColumnName="idpel" />
+                <ScalarProperty Name="idfact" ColumnName="idfact" />
+                <ScalarProperty Name="iddtfact" ColumnName="iddtfact" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="factura">
             <EntityTypeMapping TypeName="Grupo6_playBBEMModel.factura">
               <MappingFragment StoreEntitySet="factura">
-                <ScalarProperty Name="idfact" ColumnName="idfact" />
-                <ScalarProperty Name="fechafact" ColumnName="fechafact" />
-                <ScalarProperty Name="ivafact" ColumnName="ivafact" />
-                <ScalarProperty Name="subtotalfact" ColumnName="subtotalfact" />
-                <ScalarProperty Name="totalfact" ColumnName="totalfact" />
                 <ScalarProperty Name="idusuario" ColumnName="idusuario" />
+                <ScalarProperty Name="totalfact" ColumnName="totalfact" />
+                <ScalarProperty Name="subtotalfact" ColumnName="subtotalfact" />
+                <ScalarProperty Name="ivafact" ColumnName="ivafact" />
+                <ScalarProperty Name="fechafact" ColumnName="fechafact" />
+                <ScalarProperty Name="idfact" ColumnName="idfact" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="pelicula">
             <EntityTypeMapping TypeName="Grupo6_playBBEMModel.pelicula">
               <MappingFragment StoreEntitySet="pelicula">
-                <ScalarProperty Name="idpel" ColumnName="idpel" />
-                <ScalarProperty Name="titulopel" ColumnName="titulopel" />
-                <ScalarProperty Name="preciopel" ColumnName="preciopel" />
                 <ScalarProperty Name="imgpel" ColumnName="imgpel" />
+                <ScalarProperty Name="preciopel" ColumnName="preciopel" />
+                <ScalarProperty Name="titulopel" ColumnName="titulopel" />
+                <ScalarProperty Name="idpel" ColumnName="idpel" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tipopago">
             <EntityTypeMapping TypeName="Grupo6_playBBEMModel.tipopago">
               <MappingFragment StoreEntitySet="tipopago">
-                <ScalarProperty Name="idtp" ColumnName="idtp" />
-                <ScalarProperty Name="numtarjtp" ColumnName="numtarjtp" />
                 <ScalarProperty Name="idfact" ColumnName="idfact" />
+                <ScalarProperty Name="numtarjtp" ColumnName="numtarjtp" />
+                <ScalarProperty Name="idtp" ColumnName="idtp" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="usuario">
             <EntityTypeMapping TypeName="Grupo6_playBBEMModel.usuario">
               <MappingFragment StoreEntitySet="usuario">
-                <ScalarProperty Name="idusuario" ColumnName="idusuario" />
-                <ScalarProperty Name="nombreusuario" ColumnName="nombreusuario" />
-                <ScalarProperty Name="apellidousuario" ColumnName="apellidousuario" />
-                <ScalarProperty Name="generousuario" ColumnName="generousuario" />
-                <ScalarProperty Name="cedulausuario" ColumnName="cedulausuario" />
-                <ScalarProperty Name="telefonousuario" ColumnName="telefonousuario" />
-                <ScalarProperty Name="direccionusuario" ColumnName="direccionusuario" />
-                <ScalarProperty Name="correousuario" ColumnName="correousuario" />
-                <ScalarProperty Name="claveusuario" ColumnName="claveusuario" />
                 <ScalarProperty Name="imagenusuario" ColumnName="imagenusuario" />
+                <ScalarProperty Name="claveusuario" ColumnName="claveusuario" />
+                <ScalarProperty Name="correousuario" ColumnName="correousuario" />
+                <ScalarProperty Name="direccionusuario" ColumnName="direccionusuario" />
+                <ScalarProperty Name="telefonousuario" ColumnName="telefonousuario" />
+                <ScalarProperty Name="cedulausuario" ColumnName="cedulausuario" />
+                <ScalarProperty Name="generousuario" ColumnName="generousuario" />
+                <ScalarProperty Name="apellidousuario" ColumnName="apellidousuario" />
+                <ScalarProperty Name="nombreusuario" ColumnName="nombreusuario" />
+                <ScalarProperty Name="idusuario" ColumnName="idusuario" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

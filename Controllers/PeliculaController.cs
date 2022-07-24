@@ -29,8 +29,6 @@ namespace ProyectoDesarrWebU2.Controllers
                                      imgpel = p.imgpel
                                      
                                  }).ToList();
-
-
             }
             //Se retorna la lista de clientes
             return View(listaPeliculas);

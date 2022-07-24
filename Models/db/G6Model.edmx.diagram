@@ -5,16 +5,16 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="d401e41873584accadddbaf29e780375" Name="Diagram1">
-        <EntityTypeShape EntityType="Grupo6_playBBEMModel.adminis" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Grupo6_playBBEMModel.detallefactura" Width="1.5" PointX="5.25" PointY="2.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Grupo6_playBBEMModel.factura" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Grupo6_playBBEMModel.pelicula" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Grupo6_playBBEMModel.tipopago" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Grupo6_playBBEMModel.usuario" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
-        <AssociationConnector Association="Grupo6_playBBEMModel.fk_idfact" ManuallyRouted="false" />
-        <AssociationConnector Association="Grupo6_playBBEMModel.fk_idpel" ManuallyRouted="false" />
-        <AssociationConnector Association="Grupo6_playBBEMModel.fk_idusuario" ManuallyRouted="false" />
-        <AssociationConnector Association="Grupo6_playBBEMModel.fk_tipopago_to_factura" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Grupo6_playBBEMModel.adminis" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Grupo6_playBBEMModel.detallefactura" Width="1.5" PointX="5.25" PointY="2.375" />
+        <EntityTypeShape EntityType="Grupo6_playBBEMModel.factura" Width="1.5" PointX="3" PointY="1.875" />
+        <EntityTypeShape EntityType="Grupo6_playBBEMModel.pelicula" Width="1.5" PointX="3" PointY="7.375" />
+        <EntityTypeShape EntityType="Grupo6_playBBEMModel.tipopago" Width="1.5" PointX="5.25" PointY="5.125" />
+        <EntityTypeShape EntityType="Grupo6_playBBEMModel.usuario" Width="1.5" PointX="0.75" PointY="1.75" />
+        <AssociationConnector Association="Grupo6_playBBEMModel.fk_idfact" />
+        <AssociationConnector Association="Grupo6_playBBEMModel.fk_idpel" />
+        <AssociationConnector Association="Grupo6_playBBEMModel.fk_idusuario" />
+        <AssociationConnector Association="Grupo6_playBBEMModel.fk_tipopago_to_factura" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
