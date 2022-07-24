@@ -19,9 +19,9 @@
           </Key>
           <Property Name="idfact" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="fechafact" Type="date" />
-          <Property Name="ivafact" Type="numeric" Precision="4" Scale="2" />
-          <Property Name="subtotalfact" Type="numeric" Precision="7" Scale="2" />
-          <Property Name="totalfact" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="ivafact" Type="numeric" Precision="11" Scale="2" />
+          <Property Name="subtotalfact" Type="numeric" Precision="11" Scale="2" />
+          <Property Name="totalfact" Type="numeric" Precision="11" Scale="2" />
           <Property Name="idusuario" Type="int" />
         </EntityType>
         <EntityType Name="pelicula">
@@ -30,7 +30,7 @@
           </Key>
           <Property Name="idpel" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="titulopel" Type="varchar" MaxLength="50" />
-          <Property Name="preciopel" Type="numeric" Precision="4" Scale="2" />
+          <Property Name="preciopel" Type="numeric" Precision="11" Scale="2" />
           <Property Name="imgpel" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="tipopago">
@@ -149,9 +149,9 @@
           </Key>
           <Property Name="idfact" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="fechafact" Type="DateTime" Precision="0" />
-          <Property Name="ivafact" Type="Decimal" Precision="4" Scale="2" />
-          <Property Name="subtotalfact" Type="Decimal" Precision="7" Scale="2" />
-          <Property Name="totalfact" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="ivafact" Type="Decimal" Precision="11" Scale="2" />
+          <Property Name="subtotalfact" Type="Decimal" Precision="11" Scale="2" />
+          <Property Name="totalfact" Type="Decimal" Precision="11" Scale="2" />
           <Property Name="idusuario" Type="Int32" />
           <NavigationProperty Name="detallefactura" Relationship="Self.fk_idfact" FromRole="factura" ToRole="detallefactura" />
           <NavigationProperty Name="usuario" Relationship="Self.fk_idusuario" FromRole="factura" ToRole="usuario" />
@@ -163,7 +163,7 @@
           </Key>
           <Property Name="idpel" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="titulopel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="preciopel" Type="Decimal" Precision="4" Scale="2" />
+          <Property Name="preciopel" Type="Decimal" Precision="11" Scale="2" />
           <Property Name="imgpel" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="detallefactura" Relationship="Self.fk_idpel" FromRole="pelicula" ToRole="detallefactura" />
         </EntityType>
