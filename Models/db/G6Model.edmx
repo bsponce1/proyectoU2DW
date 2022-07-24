@@ -5,6 +5,14 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="Grupo6_playBBEMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="adminis">
+          <Key>
+            <PropertyRef Name="idadmin" />
+          </Key>
+          <Property Name="idadmin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreadmin" Type="varchar" MaxLength="80" />
+          <Property Name="claveadmin" Type="varchar" MaxLength="80" />
+        </EntityType>
         <EntityType Name="detallefactura">
           <Key>
             <PropertyRef Name="iddtfact" />
@@ -53,8 +61,7 @@
           <Property Name="telefonousuario" Type="varchar" MaxLength="10" />
           <Property Name="direccionusuario" Type="varchar" MaxLength="200" />
           <Property Name="correousuario" Type="varchar" MaxLength="100" />
-          <Property Name="clavecliente" Type="varchar" MaxLength="80" />
-          <Property Name="permisousuario" Type="bit" />
+          <Property Name="claveusuario" Type="varchar" MaxLength="80" />
           <Property Name="imagenusuario" Type="varchar(max)" />
         </EntityType>
         <Association Name="fk_idfact">
@@ -106,6 +113,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="Grupo6_playBBEMModelStoreContainer">
+          <EntitySet Name="adminis" EntityType="Self.adminis" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="detallefactura" EntityType="Self.detallefactura" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="factura" EntityType="Self.factura" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="pelicula" EntityType="Self.pelicula" Schema="dbo" store:Type="Tables" />
@@ -133,6 +141,14 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Grupo6_playBBEMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="adminis">
+          <Key>
+            <PropertyRef Name="idadmin" />
+          </Key>
+          <Property Name="idadmin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreadmin" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="claveadmin" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="detallefactura">
           <Key>
             <PropertyRef Name="iddtfact" />
@@ -188,8 +204,7 @@
           <Property Name="telefonousuario" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="direccionusuario" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="correousuario" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="clavecliente" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
-          <Property Name="permisousuario" Type="Boolean" />
+          <Property Name="claveusuario" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
           <Property Name="imagenusuario" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="factura" Relationship="Self.fk_idusuario" FromRole="usuario" ToRole="factura" />
         </EntityType>
@@ -242,6 +257,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="Grupo6_playBBEMEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="adminis" EntityType="Self.adminis" />
           <EntitySet Name="detallefactura" EntityType="Self.detallefactura" />
           <EntitySet Name="factura" EntityType="Self.factura" />
           <EntitySet Name="pelicula" EntityType="Self.pelicula" />
@@ -270,6 +286,15 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="Grupo6_playBBEMModelStoreContainer" CdmEntityContainer="Grupo6_playBBEMEntities">
+          <EntitySetMapping Name="adminis">
+            <EntityTypeMapping TypeName="Grupo6_playBBEMModel.adminis">
+              <MappingFragment StoreEntitySet="adminis">
+                <ScalarProperty Name="idadmin" ColumnName="idadmin" />
+                <ScalarProperty Name="nombreadmin" ColumnName="nombreadmin" />
+                <ScalarProperty Name="claveadmin" ColumnName="claveadmin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="detallefactura">
             <EntityTypeMapping TypeName="Grupo6_playBBEMModel.detallefactura">
               <MappingFragment StoreEntitySet="detallefactura">
@@ -321,8 +346,7 @@
                 <ScalarProperty Name="telefonousuario" ColumnName="telefonousuario" />
                 <ScalarProperty Name="direccionusuario" ColumnName="direccionusuario" />
                 <ScalarProperty Name="correousuario" ColumnName="correousuario" />
-                <ScalarProperty Name="clavecliente" ColumnName="clavecliente" />
-                <ScalarProperty Name="permisousuario" ColumnName="permisousuario" />
+                <ScalarProperty Name="claveusuario" ColumnName="claveusuario" />
                 <ScalarProperty Name="imagenusuario" ColumnName="imagenusuario" />
               </MappingFragment>
             </EntityTypeMapping>
