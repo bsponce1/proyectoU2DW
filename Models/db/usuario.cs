@@ -28,8 +28,7 @@ namespace ProyectoDesarrWebU2.Models.db
         public string telefonousuario { get; set; }
         public string direccionusuario { get; set; }
         public string correousuario { get; set; }
-        public string clavecliente { get; set; }
-        public Nullable<bool> permisousuario { get; set; }
+        public string claveusuario { get; set; }
         public string imagenusuario { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

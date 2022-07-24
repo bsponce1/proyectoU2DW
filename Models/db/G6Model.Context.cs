@@ -25,6 +25,7 @@ namespace ProyectoDesarrWebU2.Models.db
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<adminis> adminis { get; set; }
         public virtual DbSet<detallefactura> detallefactura { get; set; }
         public virtual DbSet<factura> factura { get; set; }
         public virtual DbSet<pelicula> pelicula { get; set; }
