@@ -108,9 +108,9 @@ namespace ProyectoDesarrWebU2.Controllers
                     using (Grupo6_playBBEMEntities db = new Grupo6_playBBEMEntities())
                     {
                         var oPelicula = db.pelicula.Find(PeliculaModel.idpel);
-                        oPelicula.titulopel = peliculaModel.titulopel;
-                        oPelicula.preciopel = peliculaModel.preciopel;
-                        oPelicula.imgpel = peliculaModel.imgpel;
+                        oPelicula.titulopel = PeliculaModel.titulopel;
+                        oPelicula.preciopel = PeliculaModel.preciopel;
+                        oPelicula.imgpel = PeliculaModel.imgpel;
 
                         db.Entry(oPelicula).State = System.Data.Entity.EntityState.Modified;
                         db.SaveChanges();
