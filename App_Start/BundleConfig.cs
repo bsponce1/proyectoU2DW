@@ -28,6 +28,10 @@ namespace ProyectoDesarrWebU2
                           "~/Content/bootstrap.css",
                           "~/Content/bootstrap.min.css",
                           "~/Content/site.css"));
+                bundles.Add(new StyleBundle("~/Content/css/bootstrap").Include(
+                          "~/Content/bootstrap.min.css", 
+                          new CssRewriteUrlTransform()));
+
             }
         }
     }

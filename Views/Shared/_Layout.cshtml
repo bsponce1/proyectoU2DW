@@ -7,6 +7,7 @@
     <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/css/bootstrap")
     @Scripts.Render("~/bundles/bootstrap")
 </head>
 <body>
@@ -60,9 +61,179 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Mi aplicación de Peliculas</p>
-        </footer>
+            <!-- Footer -->
+            <footer class="bg-dark text-center text-white">
+                <!-- Grid container -->
+                <div class="container p-4">
+                    <!-- Section: Social media -->
+                    <section class="mb-4">
+                        <!-- Facebook -->
+                        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+
+                        <!-- Twitter -->
+                        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+
+                        <!-- Google -->
+                        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">
+                            <i class="fab fa-google"></i>
+                        </a>
+
+                        <!-- Instagram -->
+                        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+
+                        <!-- Linkedin -->
+                        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+
+                        <!-- Github -->
+                        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </section>
+                    <!-- Section: Social media -->
+                    <!-- Section: Form -->
+                    <section class="">
+                        <form action="">
+                            <!--Grid row-->
+                            <div class="row d-flex justify-content-center">
+                                <!--Grid column-->
+                                <div class="col-auto">
+                                    <p class="pt-2">
+                                        <strong>Suscríbete a nuestro sitio</strong>
+                                    </p>
+                                </div>
+                                <!--Grid column-->
+                                <!--Grid column-->
+                                <div class="col-md-5 col-12">
+                                    <!-- Email input -->
+                                    <div class="form-outline form-white">
+                                        <input type="email" id="form5Example21" style="width:500px" class="col-form-label" />
+                                        <label class="form-label" for="form5Example21">Correo electronico</label>
+                                    </div>
+                                </div>
+                                <!--Grid column-->
+                                <!--Grid column-->
+                                <div class="col-auto">
+                                    <!-- Submit button -->
+                                    <button type="submit" class="btn btn-outline-light mb-4">
+                                        Subscribete
+                                    </button>
+                                </div>
+                                <!--Grid column-->
+                            </div>
+                            <!--Grid row-->
+                        </form>
+                    </section>
+                    <!-- Section: Form -->
+                    <!-- Section: Text -->
+                    <section class="mb-4">
+                        <p>
+                            El cine tiene ese poder casi mágico de hacernos vivir una experiencia transformadora. 
+                            Claro, es una experiencia personal e intransferible (como el DNI) y depende en última 
+                            instancia de nuestras preocupaciones, miedos, aspiraciones y anhelos. Aun así, no tenemos
+                            dudas de que en esta lista de las frases más inspiradoras de la historia del cine 
+                            encontrarás la que se ajuste perfectamente a ti.
+                        </p>
+                    </section>
+                    <!-- Section: Text -->
+                    <!-- Section: Links -->
+                    <section class="">
+                        <!--Grid row-->
+                        <div class="row">
+                            <!--Grid column-->
+                            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                                <h5 class="text-uppercase">Integrantes</h5>
+
+                                <ul class="list-unstyled mb-0">
+                                    <li>
+                                        <a class="text-white">Bryan Noboa</a>
+                                    </li>
+                                    <li>
+                                        <a class="text-white">Bryan Ponce</a>
+                                    </li>
+                                    <li>
+                                        <a class="text-white">Maylon Cuzco</a>
+                                    </li>
+                                    <li>
+                                        <a class="text-white">Steveen Engracia</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!--Grid column-->
+                            <!--Grid column-->
+                            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                                <h5 class="text-uppercase">Celular</h5>
+
+                                <ul class="list-unstyled mb-0">
+                                    <li>
+                                        <a class="text-white">0990098972</a>
+                                    </li>
+                                    <li>
+                                        <a class="text-white">0985458745</a>
+                                    </li>
+                                    <li>
+                                        <a class="text-white">0985468885</a>
+                                    </li>
+                                    <li>
+                                        <a class="text-white">0947854541</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!--Grid column-->
+                            <!--Grid column-->
+                            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                                <h5 class="text-uppercase">Email</h5>
+
+                                <ul class="list-unstyled mb-0">
+                                    <li>
+                                        <a class="text-white">bdnoboa@espe.edu.ec</a>
+                                    </li>
+                                    <li>
+                                        <a class="text-white">bsponce1@espe.edu.ec</a>
+                                    </li>
+                                    <li>
+                                        <a class="text-white">mecuzco@espe.edu.ec</a>
+                                    </li>
+                                    <li>
+                                        <a class="text-white">saengracia@espe.edu.ec</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!--Grid column-->
+                            <!--Grid column-->
+                            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                                <h5 class="text-uppercase">Dirección</h5>
+
+                                <ul class="list-unstyled mb-0">
+                                    <li>
+                                        <a href="#!" class="text-white">Santo Domingo de los Tsachilas</a>
+                                    </li>
+                                 
+                                </ul>
+                            </div>
+                            <!--Grid column-->
+                        </div>
+                        <!--Grid row-->
+                    </section>
+                    <!-- Section: Links -->
+                </div>
+                <!-- Grid container -->
+                <!-- Copyright -->
+                <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                    © 2020 Copyright:
+                    <a class="text-white" href="https://santodomingo.espe.edu.ec/">santodomingo.espe.edu.ec</a>
+                </div>
+                <!-- Copyright -->
+            </footer>
+            <!-- Footer -->
+
     </div>
 
 
