@@ -53,6 +53,7 @@ namespace ProyectoDesarrWebU2.Controllers
                 fileName = Path.Combine(Server.MapPath("../imgPeliculas/catalogo/"), fileName);
                 peliculaModel.imgFile.SaveAs(fileName);
 
+
                 //validar el modelo 
                 if (ModelState.IsValid)
                 {
@@ -64,7 +65,6 @@ namespace ProyectoDesarrWebU2.Controllers
                         oPelicula.titulopel = peliculaModel.titulopel;
                         oPelicula.preciopel = peliculaModel.preciopel;
                         oPelicula.imgpel = peliculaModel.imgpel;
-                     //   oPelicula.img_cli = clienteModel.img_cli;
 
                         //
                         db.pelicula.Add(oPelicula);
@@ -127,6 +127,24 @@ namespace ProyectoDesarrWebU2.Controllers
                 throw new Exception(ex.Message);
             }
         }
+
+        /*public ActionResult getImage(int id)
+        {
+            using (ArticuloEntities db = new ArticuloEntities())
+            {
+                var oArticulo = db.articulo.Find(id);
+                byte[] byteImage = oArticulo.archivo_arti;
+
+                MemoryStream memoryStream = new MemoryStream(byteImage);
+                Image image = Image.FromStream(memoryStream);
+
+                memoryStream = new MemoryStream();
+                image.Save(memoryStream, ImageFormat.Jpeg);
+                memoryStream.Position = 0;
+
+                return File(memoryStream, "image/jpg");
+            }
+        }*/
 
 
 
