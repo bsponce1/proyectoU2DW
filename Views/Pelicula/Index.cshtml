@@ -23,11 +23,13 @@
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">Precio: @oElemento.preciopel</li>
-                    
+
                 </ul>
                 <div class="card-body">
-                    <a class="btn btn-default" href="@Url.Action("Editar", "Pelicula", new {id=oElemento.idpel})">Editar</a>
-                    <a href="#" class="card-link">Comprar</a>
+                    <a class="btn btn-outline-danger" href="@Url.Action("Editar", "Pelicula", new {id=oElemento.idpel})">Editar</a>
+                    <a class="btn btn-dark" href="#">Comprar</a>
+                    <a class="btn btn-danger" onclick="if (confirm('¿Está seguro de querer eliminar está pelicula?'))
+                            { window.location.href = 'Eliminar/@oElemento.idpel' }">Eliminar</a>
                 </div>
             </div>
 
