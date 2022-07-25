@@ -16,7 +16,7 @@ namespace ProyectoDesarrWebU2
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Pelicula", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Access", action = "Login", id = UrlParameter.Optional }
             );
         }
     }

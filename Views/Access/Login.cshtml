@@ -1,0 +1,112 @@
+﻿@model List<ProyectoDesarrWebU2.Models.ViewModels.ListUsuarioViewModel>
+@{
+    ViewBag.Title = "Usuario";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="container">
+        <form action="@Url.Action("Index","Pelicula")" method="post">
+            <h1>Bienvenido</h1>
+            <label>Usuario: <input type="text" placeholder="Ingrese su nombre:" name="nombreusuario" require></label>
+            <br>
+            <label>Contraseña: <input type="password" placeholder="Ingrese su contraseña:" name="claveusuario" require></label>
+            <input type="submit" value="Ingresar">
+            <p style="margin-top: 10px;">¿No tienes cuenta? </p>
+            <a href="">Registrar</a>
+            <a href="">Cancelar</a>
+        </form>
+        <inicio-sesion></inicio-sesion>
+    </div>
+
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        text-align: center;
+    }
+
+    form {
+        padding: 20px 20px;
+        background-color: #fdf7f7a6;
+        border-style: outset;
+        border-width: 1px;
+        width: 20%;
+        height: 70%;
+        margin-top: 130px;
+        padding-top: 28px;
+        margin-bottom: 30px;
+        position: absolute;
+        left: 38%;
+    }
+
+    h1 {
+        text-align: center;
+        padding: 12px;
+        color: #161614;
+    }
+
+    input {
+        width: 90%;
+        padding: 9px;
+        margin: auto;
+        margin-top: 12px;
+        font-size: 16px
+    }
+
+        input[type='submit'] {
+            background-color: rgb(28, 36, 48);
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: #fff;
+            width: 50%;
+            margin: 0 10%;
+            margin-top: 22px;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+
+    #boton > input:hover {
+        cursor: pointer;
+    }
+
+    #registrar {
+        padding-left: 10%;
+    }
+
+    #cancelarsesion {
+        border: solid 2px black;
+        width: 80px;
+        height: 20px;
+        text-align: center;
+        align-content: center;
+        padding: 7px;
+        margin: 10px;
+        background-color: #070917a6;
+        border-radius: 10px;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+        #cancelarsesion > a {
+            text-decoration: none;
+            color: white;
+            font-weight: bolder;
+        }
+</style>
+
+<script>
+    class LoginSesion extends HTMLElement {
+        constructor() {
+            super();
+        }
+        connectedCallback() {
+            let shadowRoot = this.attachShadow({ mode: 'open' });
+            const t = document.querySelector('#template-sesion');
+            const instancia = t.content.cloneNode(true);
+            shadowRoot.appendChild(instancia);
+        }
+    }
+    window.customElements.define('inicio-sesion', LoginSesion);
+</script>
