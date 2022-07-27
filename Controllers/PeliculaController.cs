@@ -128,6 +128,10 @@ namespace ProyectoDesarrWebU2.Controllers
             }
         }
 
+        public ActionResult Comprar()
+        {
+            return View();
+        }
         [HttpPost]
         public ActionResult Comprar(PeliculaViewModel peliculaModel)
         {
