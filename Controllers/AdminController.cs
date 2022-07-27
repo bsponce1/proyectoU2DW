@@ -19,6 +19,37 @@ namespace ProyectoDesarrWebU2.Controllers
             return View();
         }
 
+<<<<<<< HEAD
+        public ActionResult Peliculas()
+        {
+            List<ListPeliculaViewModel> listaPeliculas;
+            using (Grupo6_playBBEMEntities db = new Grupo6_playBBEMEntities())
+            {
+                listaPeliculas = (from p in db.pelicula
+                                 select new ListPeliculaViewModel
+                                 {
+                                     idpel = p.idpel,
+                                     titulopel = p.titulopel,
+                                     preciopel = p.preciopel,
+                                 }).ToList();
+            }
+            return View(listaPeliculas);
+        }
+
+        //Funcion Eliminar Usuario
+        public ActionResult EliminarPeli(int id)
+        {
+            using (Grupo6_playBBEMEntities db = new Grupo6_playBBEMEntities())
+            {
+                var oPeliculas = db.pelicula.Find(id);
+                db.pelicula.Remove(oPeliculas);
+                db.SaveChanges();
+            }
+            return Redirect("~/Admin");
+        }
+
+=======
+>>>>>>> f04e9d6888176f6aca03bed5cb5aa35de8bbc80b
         public ActionResult Usuarios()
         {
             List<ListaUsuariosViewModel> listaUsuarios;
