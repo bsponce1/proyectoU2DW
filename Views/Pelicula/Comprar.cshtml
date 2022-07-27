@@ -5,7 +5,7 @@
 
 <h2>Comprar Pelicula</h2>
 
-@using (Html.BeginForm("Comprar", "pelicula", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Comprar", "Pelicula", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
 
 
@@ -26,8 +26,8 @@
                         <div class="payment-info">
                             <div class="d-flex justify-content-between align-items-center"><span>Detalle de Tarjeta</span></div>
                             <span class="type d-block mt-3 mb-1">Tipo de tarjeta</span>
-                            <label class="radio"> <input type="radio" name="card" value="payment" checked> <span><img width="60" src="@Url.Content("~/imgPeliculas/Tarjetas/master.png")" /></span> </label>
-                            <label class="radio ml-2"> <input type="radio" name="card" value="payment"> <span><img width="60" src="@Url.Content("~/imgPeliculas/Tarjetas/visa.png")" /></span> </label>
+                            <label class="radio"> <input type="radio" name="card" value="payment" checked> <span><img width="60" src="@Url.Content("~/imgPeliculas/catalogo/master.png")" /></span> </label>
+                            <label class="radio ml-2"> <input type="radio" name="card" value="payment"> <span><img width="60" src="@Url.Content("~/imgPeliculas/catalogo/visa.png")" /></span> </label>
                             <div>
                                 <label class="credit-card-label mb-1 mt-2">Nombre del Titular</label>
                                 <input type="text" class="form-control credit-inputs" placeholder="Nombre" id="trj_nombre">
