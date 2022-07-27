@@ -19,6 +19,7 @@ namespace ProyectoDesarrWebU2.Controllers
             return View();
         }
 
+
         public ActionResult Peliculas()
         {
             List<ListPeliculaViewModel> listaPeliculas;
