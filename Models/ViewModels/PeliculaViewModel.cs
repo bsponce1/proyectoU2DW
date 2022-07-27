@@ -26,4 +26,6 @@ namespace ProyectoDesarrWebU2.Models.ViewModels
         public HttpPostedFileBase imgFile { get; set; }
 
     }
+
+
 }
