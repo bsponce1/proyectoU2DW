@@ -14,6 +14,11 @@ namespace ProyectoDesarrWebU2.Controllers
     public class AdminController : Controller
     {
         // GET: Admin
+        public ActionResult HomeAdmin()
+        {
+            return View();
+        }
+
         public ActionResult Usuarios()
         {
             List<ListaUsuariosViewModel> listaUsuarios;
@@ -44,7 +49,7 @@ namespace ProyectoDesarrWebU2.Controllers
                 db.usuario.Remove(oUsuarios);
                 db.SaveChanges();
             }
-            return Redirect("~/Usuarios");
+            return Redirect("~/Admin");
         }
     }
 }

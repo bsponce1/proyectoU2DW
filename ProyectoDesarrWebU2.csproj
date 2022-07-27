@@ -262,6 +262,7 @@
     <Content Include="Views\Access\Login.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Admin\Usuarios.cshtml" />
+    <Content Include="Views\Admin\HomeAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
