@@ -128,36 +128,5 @@ namespace ProyectoDesarrWebU2.Controllers
             }
         }
 
-        /*public ActionResult getImage(int id)
-        {
-            using (ArticuloEntities db = new ArticuloEntities())
-            {
-                var oArticulo = db.articulo.Find(id);
-                byte[] byteImage = oArticulo.archivo_arti;
-
-                MemoryStream memoryStream = new MemoryStream(byteImage);
-                Image image = Image.FromStream(memoryStream);
-
-                memoryStream = new MemoryStream();
-                image.Save(memoryStream, ImageFormat.Jpeg);
-                memoryStream.Position = 0;
-
-                return File(memoryStream, "image/jpg");
-            }
-        }*/
-
-
-
-        //Eliminar la Pelicula
-        public ActionResult Eliminar(int idpel)
-        {
-            using (Grupo6_playBBEMEntities db = new Grupo6_playBBEMEntities())
-            {
-                var oPelicula = db.pelicula.Find(idpel);
-                db.pelicula.Remove(oPelicula);
-                db.SaveChanges();
-            }
-            return Redirect("~/Pelicula");
-        }
     }
 }
