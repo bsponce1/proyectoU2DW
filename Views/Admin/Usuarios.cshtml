@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "Usuarios";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+            <tr class="primary">
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Género</th>
+                <th>Cédula</th>
+                <th>Teléfono</th>
+                <th>Dirección</th>
+                <th>Email</th>
+            </tr>
+
+            @foreach(var uElemento in Model)
+            {
+                <tr>
+                    <td>@uElemento.idusuario</td>
+                    <td>@uElemento.nombreusuario</td>
+                    <td>@uElemento.apellidousuario</td>
+                    <td>@uElemento.generousuario</td>
+                    <td>@uElemento.cedulausuario</td>
+                    <td>@uElemento.telefonousuario</td>
+                    <td>@uElemento.direccionusuario</td>
+                    <td>@uElemento.correousuario</td>
+                    <td>
+                        <a class="btn btn-danger" onclick="return DeleteConfirm()" href="@Url.Action("EliminarUsu", "Admin", new {id=uElemento.idusuario})">Eliminar</a>
+                        <script type="text/javascript">
+                            function DeleteConfirm() {
+                                if (confirm("En verdad quiere eliminar este usuario?"))
+                                    return true;
+                                else
+                                    return false;
+                            }
+                        </script>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+

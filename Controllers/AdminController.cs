@@ -4,14 +4,52 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+using ProyectoDesarrWebU2.Models;
+using ProyectoDesarrWebU2.Models.db;
+using ProyectoDesarrWebU2.Models.ViewModels;
+
+
 namespace ProyectoDesarrWebU2.Controllers
 {
     public class AdminController : Controller
     {
         // GET: Admin
-        public ActionResult Index()
+        public ActionResult HomeAdmin()
         {
             return View();
+        }
+
+        public ActionResult Usuarios()
+        {
+            List<ListaUsuariosViewModel> listaUsuarios;
+            using(Grupo6_playBBEMEntities db = new Grupo6_playBBEMEntities())
+            {
+                listaUsuarios = (from u in db.usuario
+                                 select new ListaUsuariosViewModel
+                                 {
+                                     idusuario = u.idusuario,
+                                     nombreusuario = u.nombreusuario,
+                                     apellidousuario = u.apellidousuario,
+                                     generousuario = u.generousuario,
+                                     cedulausuario = u.cedulausuario,
+                                     telefonousuario = u.telefonousuario,
+                                     direccionusuario = u.direccionusuario,
+                                     correousuario = u.correousuario
+                                 }).ToList();
+            }
+            return View(listaUsuarios);
+        }
+
+        //Funcion Eliminar Usuario
+        public ActionResult EliminarUsu (int id)
+        {
+            using (Grupo6_playBBEMEntities db = new Grupo6_playBBEMEntities())
+            {
+                var oUsuarios = db.usuario.Find(id);
+                db.usuario.Remove(oUsuarios);
+                db.SaveChanges();
+            }
+            return Redirect("~/Admin");
         }
     }
 }
