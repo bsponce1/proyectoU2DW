@@ -128,6 +128,39 @@ namespace ProyectoDesarrWebU2.Controllers
             }
         }
 
+        [HttpPost]
+        public ActionResult Comprar(PeliculaViewModel peliculaModel)
+        {
+            try
+            {
+                //validar el modelo 
+                if (ModelState.IsValid)
+                {
+                    //Conexión a la base de datos
+                    using (Grupo6_playBBEMEntities db = new Grupo6_playBBEMEntities())
+                    {
+                        var oFactura = new factura();
 
+                        oFactura.fechafact = peliculaModel.fechafact;
+                        oFactura.ivafact = peliculaModel.ivafact;
+                        oFactura.subtotalfact = peliculaModel.totalfact;
+                        oFactura.totalfact = peliculaModel.totalfact;
+                        //
+                        db.factura.Add(oFactura);
+                        db.SaveChanges();
+                    }
+                    return Redirect("~/Pelicula");
+                }
+                return View(peliculaModel);
+            }
+
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
+
+
+
 }
