@@ -1,0 +1,68 @@
+﻿@model ProyectoDesarrWebU2.Models.ViewModels.PeliculaViewModel
+@{
+    ViewBag.Title = "Comprar";
+}
+
+<h2>Comprar Pelicula</h2>
+
+@using (Html.BeginForm("Comprar", "pelicula", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+
+    <div class="row">
+        <div class="product-details mr-2">
+            <hr class="mt-2 mb-2">
+            <div class="d-flex justify-content-between">
+                <span class="ml-2">Detalle Compra</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card bg-light">
+            <div class="card-body">
+                <div class="row">
+
+                    <div class="col-12">
+                        <div class="payment-info">
+                            <div class="d-flex justify-content-between align-items-center"><span>Detalle de Tarjeta</span></div>
+                            <span class="type d-block mt-3 mb-1">Tipo de tarjeta</span>
+                            <label class="radio"> <input type="radio" name="card" value="payment" checked> <span><img width="60" src="@Url.Content("~/imgPeliculas/Tarjetas/master.png")" /></span> </label>
+                            <label class="radio ml-2"> <input type="radio" name="card" value="payment"> <span><img width="60" src="@Url.Content("~/imgPeliculas/Tarjetas/visa.png")" /></span> </label>
+                            <div>
+                                <label class="credit-card-label mb-1 mt-2">Nombre del Titular</label>
+                                <input type="text" class="form-control credit-inputs" placeholder="Nombre" id="trj_nombre">
+                            </div>
+                            <div>
+                                @Html.LabelFor(d => d.numtarjtp)<br />
+                                @Html.TextBoxFor(d => d.numtarjtp, "", new { @class = "credit-card-label mb-1 mt-2" })
+                                @Html.ValidationMessageFor(d => d.numtarjtp, null, new { @class = "red" })
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label class="credit-card-label mb-1 mt-2">Vigencia</label>
+                                    <input type="text" class="form-control credit-inputs" placeholder="12/24" id="trj_vigencia">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="credit-card-label mb-1 mt-2">CVV</label>
+                                    <input type="text" class="form-control credit-inputs" placeholder="342" id="trj_cvv">
+                                </div>
+                            </div>
+                            <hr class="line">
+                            <button class="btn btn-primary btn-block mt-3" id="btnProcesarPago" type="button" onclick="if (confirm('Pago Procesado'))
+                            { window.location.href = '/Pelicula/Index' }">
+                                Procesar Pago
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <br />
+    <a class="btn btn-danger" href="@Url.Action("Index","Pelicula")">Volver</a>
+
+
+}

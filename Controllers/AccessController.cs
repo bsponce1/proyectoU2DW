@@ -34,5 +34,7 @@ namespace ProyectoDesarrWebU2.Controllers
             //Se retorna la lista de clientes
             return View(listaUsuario);
         }
+
+
     }
 }
