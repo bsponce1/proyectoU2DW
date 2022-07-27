@@ -149,11 +149,11 @@ namespace ProyectoDesarrWebU2.Controllers
 
 
         //Eliminar la Pelicula
-        public ActionResult Eliminar(int id)
+        public ActionResult Eliminar(int idpel)
         {
             using (Grupo6_playBBEMEntities db = new Grupo6_playBBEMEntities())
             {
-                var oPelicula = db.pelicula.Find(id);
+                var oPelicula = db.pelicula.Find(idpel);
                 db.pelicula.Remove(oPelicula);
                 db.SaveChanges();
             }
