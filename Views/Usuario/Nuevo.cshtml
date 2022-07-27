@@ -1,0 +1,68 @@
+﻿@model ProyectoDesarrWebU2.Models.ViewModels.ListUsuarioViewModel
+@{
+    ViewBag.Title = "Usuario";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("Nuevo", "Usuario", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="row">
+        <div class="col-md-12">
+            <div>
+                @Html.LabelFor(d => d.nombreusuario)
+                @Html.TextBoxFor(d => d.nombreusuario, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.nombreusuario, null, new { @class = "red" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.apellidousuario)
+                @Html.TextBoxFor(d => d.apellidousuario, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.apellidousuario, null, new { @class = "red" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.generousuario)<br />
+                @Html.EditorFor(d => d.generousuario, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.generousuario, null, new { @class = "red" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.cedulausuario)
+                @Html.TextBoxFor(d => d.cedulausuario, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.cedulausuario, null, new { @class = "red" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.telefonousuario)<br />
+                @Html.EditorFor(d => d.telefonousuario, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.telefonousuario, null, new { @class = "red" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.direccionusuario)<br />
+                @Html.EditorFor(d => d.direccionusuario, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.direccionusuario, null, new { @class = "red" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.correousuario)<br />
+                @Html.EditorFor(d => d.correousuario, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.correousuario, null, new { @class = "red" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.claveusuario)<br />
+                @Html.EditorFor(d => d.claveusuario, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.claveusuario, null, new { @class = "red" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.imagenusuario)<br />
+
+                <div>
+                    <input type="file" name="imgFile" />
+                </div>
+
+            </div>
+
+            <br />
+            <br />
+            <div>
+                <input value="Guardar" class="btn btn-primary" type="submit" />
+            </div>
+        </div>
+    </div>
+}
