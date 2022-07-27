@@ -3,6 +3,10 @@
     ViewBag.Title = "Login";
 }
 
+@{
+    Layout = null;
+}
+
 <div class="container">
     <form class="contenedor" action="@Url.Action("Index","Pelicula")" method="post">
         <h1>Bienvenido</h1>
@@ -14,7 +18,7 @@
         <a href="">Registrar</a>
         <a href="">Cancelar</a>
     </form>
-    </div>
+</div>
 
 <style>
     * {
@@ -30,7 +34,7 @@
         border-width: 1px;
         width: 30%;
         height: 70%;
-        position:relative;
+        position: relative;
         margin-bottom: 30px;
         left: 38%;
     }
