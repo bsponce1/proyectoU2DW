@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Peliculas";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+            <tr class="primary">
+                <th>#</th>
+                <th>Título</th>
+                <th>Precio</th>
+            </tr>
+
+            @foreach (var pElemento in Model)
+            {
+                <tr>
+                    <td>@pElemento.idpel</td>
+                    <td>@pElemento.titulopel</td>
+                    <td>@pElemento.preciopel</td>
+                    <td>
+                        <a class="btn btn-danger" onclick="return DeleteConfirm()" href="@Url.Action("EliminarPeli", "Admin", new {id=pElemento.idpel})">Eliminar</a>
+                        <script type="text/javascript">
+                            function DeleteConfirm() {
+                                if (confirm("En verdad quiere eliminar esta Película?"))
+                                    return true;
+                                else
+                                    return false;
+                            }
+                        </script>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
