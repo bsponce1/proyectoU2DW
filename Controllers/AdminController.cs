@@ -19,7 +19,7 @@ namespace ProyectoDesarrWebU2.Controllers
             return View();
         }
 
-<<<<<<< HEAD
+
         public ActionResult Peliculas()
         {
             List<ListPeliculaViewModel> listaPeliculas;
@@ -48,8 +48,6 @@ namespace ProyectoDesarrWebU2.Controllers
             return Redirect("~/Admin");
         }
 
-=======
->>>>>>> f04e9d6888176f6aca03bed5cb5aa35de8bbc80b
         public ActionResult Usuarios()
         {
             List<ListaUsuariosViewModel> listaUsuarios;
