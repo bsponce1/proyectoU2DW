@@ -263,10 +263,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Admin\Usuarios.cshtml" />
     <Content Include="Views\Admin\HomeAdmin.cshtml" />
-<<<<<<< HEAD
     <Content Include="Views\Admin\Peliculas.cshtml" />
-=======
->>>>>>> f04e9d6888176f6aca03bed5cb5aa35de8bbc80b
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
